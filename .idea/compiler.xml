@@ -7,7 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="merchant-service" />
         <module name="gateway-service" />
         <module name="config-service" />
       </profile>
@@ -20,6 +19,24 @@
         </processorPath>
         <module name="central-bank-service" />
       </profile>
+      <profile name="Annotation profile for merchant-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath>
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="merchant-service" />
+      </profile>
+      <profile name="Annotation profile for bank-branch-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath>
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="bank-branch-service" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="customer-service" target="17" />
@@ -29,6 +46,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bank-branch-service" options="-parameters" />
       <module name="central-bank-service" options="-parameters" />
       <module name="config-service" options="-parameters" />
       <module name="customer-service" options="-parameters" />
